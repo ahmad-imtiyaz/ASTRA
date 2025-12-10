@@ -394,7 +394,7 @@ export default function LaravelModulePage() {
             💡 Tips: Ikuti setiap bab secara berurutan dan praktikkan langsung!
           </p>
           <p className="text-gray-400 text-sm">
-            © 2024 ASTRA Program - Laravel CRUD Module
+            © 2025 ASTRA Program - Laravel CRUD Module
           </p>
         </div>
       </footer>
