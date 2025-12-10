@@ -210,7 +210,7 @@ export default function App() {
                 <span className="font-bold text-blue-600">
                   rising achievers
                 </span>
-                —siswa-siswa yang tidak hanya mampu menggunakan teknologi,
+                —siswa-siswi yang tidak hanya mampu menggunakan teknologi,
                 tetapi juga menguasainya. Melalui pelatihan keterampilan
                 teknologi modern, seperti pemrograman, desain, jaringan,
                 internet produktif, dan literasi digital, program ini membantu
@@ -226,9 +226,12 @@ export default function App() {
               >
                 Jelajahi Modul
               </a>
-              <button className="px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl border-2 border-blue-200">
+              <a
+                href="#about"
+                className="px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl border-2 border-blue-200"
+              >
                 Pelajari Lebih Lanjut
-              </button>
+              </a>
             </div>
           </div>
         </div>

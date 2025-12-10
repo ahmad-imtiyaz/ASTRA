@@ -11,7 +11,7 @@ import Bab4 from "./pages/laravel-crud/Bab4";
 import Bab5 from "./pages/laravel-crud/Bab5";
 import Bab6 from "./pages/laravel-crud/Bab6";
 import Bab7 from "./pages/laravel-crud/Bab7";
-// import Bab8 from "./pages/laravel-crud/Bab8";
+import Bab8 from "./pages/laravel-crud/Bab8";
 
 export default function App() {
   return (
@@ -30,6 +30,7 @@ export default function App() {
         <Route path="/module/laravel-crud/chapter/5" element={<Bab5 />} />
         <Route path="/module/laravel-crud/chapter/6" element={<Bab6 />} />
         <Route path="/module/laravel-crud/chapter/7" element={<Bab7 />} />
+        <Route path="/module/laravel-crud/chapter/8" element={<Bab8 />} />
       </Routes>
     </Router>
   );

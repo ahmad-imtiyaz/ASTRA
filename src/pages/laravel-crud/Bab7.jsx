@@ -1251,7 +1251,7 @@ export default function Bab7() {
             waktunya challenge terakhir: Tugas Praktik untuk test kemampuanmu!
           </p>
           <Link
-            to="/module/laravel-crud/bab8"
+            to="/module/laravel-crud/chapter/8"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
           >
             Lanjut ke Tugas Praktik
