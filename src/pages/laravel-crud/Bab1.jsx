@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   ArrowLeft,
   ArrowRight,
@@ -25,7 +26,19 @@ const CodeBlock = ({ code, title }) => (
 
 export default function Bab1() {
   const navigate = useNavigate();
-  const [completed, setCompleted] = useState(false);
+  const { id } = useParams();
+  const CHAPTER_ID = `bab${id}`;
+
+  const [completed, setCompleted] = useState(() => {
+    const saved = localStorage.getItem(CHAPTER_ID);
+    return saved ? JSON.parse(saved) : false;
+  });
+
+  const toggleComplete = () => {
+    const newState = !completed;
+    setCompleted(newState);
+    localStorage.setItem(CHAPTER_ID, JSON.stringify(newState));
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -50,7 +63,7 @@ export default function Bab1() {
                 15 menit
               </span>
               <button
-                onClick={() => setCompleted(!completed)}
+                onClick={toggleComplete}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
                   completed
                     ? "bg-green-100 text-green-700"

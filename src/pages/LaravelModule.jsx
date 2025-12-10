@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -164,6 +164,16 @@ const ChapterCard = ({ chapter, completed, onStart }) => {
 export default function LaravelModulePage() {
   const navigate = useNavigate(); // Tambahkan ini
   const [completedChapters, setCompletedChapters] = useState([]);
+  useEffect(() => {
+    const completed = [];
+
+    chapters.forEach((ch) => {
+      const saved = JSON.parse(localStorage.getItem(`bab${ch.id}`));
+      if (saved) completed.push(ch.id);
+    });
+
+    setCompletedChapters(completed);
+  }, []);
 
   const handleStartChapter = (chapterId) => {
     // Ganti alert dengan navigate
