@@ -1,6 +1,8 @@
 import React from "react";
 import { BookOpen, Code, Globe, Network, Shield, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import AboutSection from "../components/AboutSection";
 
 // Data modul pembelajaran
 const modules = [
@@ -172,7 +174,6 @@ export default function App() {
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-sky-100/50 via-blue-100/50 to-indigo-100/50"></div>
         <div className="absolute top-0 left-0 w-96 h-96 bg-sky-300/20 rounded-full blur-3xl"></div>
@@ -196,46 +197,12 @@ export default function App() {
             <p className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
               Advanced Skills Training for Rising Achievers
             </p>
-
-            <div
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl max-w-3xl mx-auto"
-              id="about"
-            >
-              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center justify-center gap-2">
-                <span className="text-2xl">🌟</span>
-                Filosofi Program
-              </h3>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                ASTRA lahir dari gagasan untuk membangun generasi{" "}
-                <span className="font-bold text-blue-600">
-                  rising achievers
-                </span>
-                —siswa-siswi yang tidak hanya mampu menggunakan teknologi,
-                tetapi juga menguasainya. Melalui pelatihan keterampilan
-                teknologi modern, seperti pemrograman, desain, jaringan,
-                internet produktif, dan literasi digital, program ini membantu
-                sekolah mempersiapkan siswanya memasuki dunia yang serba
-                digital.
-              </p>
-            </div>
-
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-              <a
-                href="#modules"
-                className="px-8 py-4 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold rounded-xl hover:from-sky-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Jelajahi Modul
-              </a>
-              <a
-                href="#about"
-                className="px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl border-2 border-blue-200"
-              >
-                Pelajari Lebih Lanjut
-              </a>
-            </div>
           </div>
+          <AboutSection />
         </div>
       </section>
+
+      {/* Panggil komponen AboutSection di sini */}
 
       {/* Modules Section */}
       <section className="py-20" id="modules">
