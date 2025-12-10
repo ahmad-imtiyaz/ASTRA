@@ -303,16 +303,21 @@ export default function Bab4() {
               <div className="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-gray-800 font-semibold text-lg mb-2">
                       ✅ File Migration Berhasil Dibuat!
                     </p>
+
                     <p className="text-gray-600 mb-2">
                       File migration baru akan muncul di folder:
                     </p>
-                    <code className="bg-gray-800 text-green-400 px-3 py-2 rounded block text-sm">
-                      database/migrations/2025_02_26_232350_create_barangs_table.php
-                    </code>
+
+                    <div className="max-w-full overflow-x-auto">
+                      <code className="bg-gray-800 text-green-400 px-3 py-2 rounded block text-sm whitespace-nowrap">
+                        database/migrations/2025_02_26_232350_create_barangs_table.php
+                      </code>
+                    </div>
+
                     <p className="text-gray-500 text-sm mt-2">
                       *Angka di depan adalah timestamp (tanggal & waktu
                       pembuatan)
@@ -511,17 +516,23 @@ return new class extends Migration
               <div className="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <div>
+
+                  <div className="min-w-0">
                     <p className="text-gray-800 font-semibold text-lg mb-3">
                       ✅ Output Berhasil:
                     </p>
-                    <CodeBlock
-                      code={`INFO  Running migrations.
+
+                    {/* FIX: Wrapper scroll agar CodeBlock tidak dorong layout */}
+                    <div className="max-w-full overflow-x-auto">
+                      <CodeBlock
+                        code={`INFO  Running migrations.
 
 2025_02_26_232350_create_barangs_table ............. 18ms DONE`}
-                      title="Terminal Output"
-                      language="bash"
-                    />
+                        title="Terminal Output"
+                        language="bash"
+                      />
+                    </div>
+
                     <p className="text-gray-600 mt-3">
                       Kalau muncul output seperti ini, berarti tabel{" "}
                       <strong>barangs</strong> sudah berhasil dibuat di database{" "}
@@ -546,13 +557,16 @@ return new class extends Migration
                     <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">
                       1
                     </span>
-                    <div>
+                    <div className="min-w-0">
                       <p className="text-gray-800 font-semibold">
                         Buka phpMyAdmin
                       </p>
-                      <code className="bg-gray-800 text-green-400 px-2 py-1 rounded text-sm">
-                        http://localhost/phpmyadmin
-                      </code>
+
+                      <div className="max-w-full overflow-x-auto">
+                        <code className="bg-gray-800 text-green-400 px-2 py-1 rounded text-sm whitespace-nowrap inline-block">
+                          http://localhost/phpmyadmin
+                        </code>
+                      </div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -582,59 +596,69 @@ return new class extends Migration
                       </ul>
                     </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">
+                  <li className="flex flex-col sm:flex-row items-start gap-3">
+                    {/* Nomor step */}
+                    <span
+                      className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full 
+                   flex items-center justify-center font-bold"
+                    >
                       4
                     </span>
-                    <div>
+
+                    {/* Isi konten */}
+                    <div className="w-full">
                       <p className="text-gray-700 mb-2">
                         Klik tabel <strong>barangs</strong>, cek strukturnya:
                       </p>
+
                       <div className="bg-white rounded-lg p-4 border border-gray-200 mt-2">
-                        <table className="w-full text-sm">
-                          <thead className="bg-gray-100">
-                            <tr>
-                              <th className="text-left p-2 border">Kolom</th>
-                              <th className="text-left p-2 border">Tipe</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td className="p-2 border">id</td>
-                              <td className="p-2 border">
-                                bigint(20) unsigned
-                              </td>
-                            </tr>
-                            <tr>
-                              <td className="p-2 border">kode_barang</td>
-                              <td className="p-2 border">varchar(10)</td>
-                            </tr>
-                            <tr>
-                              <td className="p-2 border">nama_barang</td>
-                              <td className="p-2 border">varchar(100)</td>
-                            </tr>
-                            <tr>
-                              <td className="p-2 border">stok</td>
-                              <td className="p-2 border">int(11)</td>
-                            </tr>
-                            <tr>
-                              <td className="p-2 border">harga</td>
-                              <td className="p-2 border">decimal(10,2)</td>
-                            </tr>
-                            <tr>
-                              <td className="p-2 border">deskripsi</td>
-                              <td className="p-2 border">text</td>
-                            </tr>
-                            <tr>
-                              <td className="p-2 border">created_at</td>
-                              <td className="p-2 border">timestamp</td>
-                            </tr>
-                            <tr>
-                              <td className="p-2 border">updated_at</td>
-                              <td className="p-2 border">timestamp</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        {/* WRAPPER ANTI OVERFLOW */}
+                        <div className="overflow-x-auto w-full">
+                          <table className="text-sm min-w-max">
+                            <thead className="bg-gray-100">
+                              <tr>
+                                <th className="text-left p-2 border">Kolom</th>
+                                <th className="text-left p-2 border">Tipe</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td className="p-2 border">id</td>
+                                <td className="p-2 border">
+                                  bigint(20) unsigned
+                                </td>
+                              </tr>
+                              <tr>
+                                <td className="p-2 border">kode_barang</td>
+                                <td className="p-2 border">varchar(10)</td>
+                              </tr>
+                              <tr>
+                                <td className="p-2 border">nama_barang</td>
+                                <td className="p-2 border">varchar(100)</td>
+                              </tr>
+                              <tr>
+                                <td className="p-2 border">stok</td>
+                                <td className="p-2 border">int(11)</td>
+                              </tr>
+                              <tr>
+                                <td className="p-2 border">harga</td>
+                                <td className="p-2 border">decimal(10,2)</td>
+                              </tr>
+                              <tr>
+                                <td className="p-2 border">deskripsi</td>
+                                <td className="p-2 border">text</td>
+                              </tr>
+                              <tr>
+                                <td className="p-2 border">created_at</td>
+                                <td className="p-2 border">timestamp</td>
+                              </tr>
+                              <tr>
+                                <td className="p-2 border">updated_at</td>
+                                <td className="p-2 border">timestamp</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </li>

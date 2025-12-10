@@ -71,7 +71,6 @@ const CodeBlock = ({ code, title, language = "bash" }) => {
     </div>
   );
 };
-
 const QuizQuestion = ({
   number,
   question,
@@ -98,13 +97,18 @@ const QuizQuestion = ({
   const isCorrect = selected === correctAnswer;
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-purple-100">
+    <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-purple-100 max-w-full overflow-hidden">
       <div className="flex items-start gap-3 mb-4">
         <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
           {number}
         </div>
-        <div className="flex-1">
-          <h3 className="text-lg font-bold text-gray-800 mb-4">{question}</h3>
+
+        <div className="flex-1 overflow-hidden">
+          {/* QUESTION FIX */}
+          <h3 className="text-lg font-bold text-gray-800 mb-4 break-words whitespace-normal">
+            {question}
+          </h3>
+
           <div className="space-y-3">
             {options.map((option, idx) => {
               const optionLetter = String.fromCharCode(65 + idx);
@@ -136,27 +140,35 @@ const QuizQuestion = ({
                   key={idx}
                   onClick={() => handleSelect(optionLetter)}
                   disabled={showResult}
-                  className={`w-full text-left p-4 rounded-lg border-2 transition-all ${bgColor} ${borderColor} ${textColor} ${
-                    !showResult ? "cursor-pointer" : "cursor-default"
-                  }`}
+                  className={`w-full text-left p-4 rounded-lg border-2 transition-all
+                    ${bgColor} ${borderColor} ${textColor}
+                    ${!showResult ? "cursor-pointer" : "cursor-default"}
+                    break-words whitespace-normal max-w-full`}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-start gap-3 overflow-hidden">
+                    {/* LETTER CIRCLE FIX */}
                     <div
-                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 font-bold text-sm ${
-                        showResult && isCorrectOption
-                          ? "border-green-500 bg-green-500 text-white"
-                          : showResult && isSelected && !isCorrect
-                          ? "border-red-500 bg-red-500 text-white"
-                          : isSelected
-                          ? "border-purple-500 bg-purple-500 text-white"
-                          : "border-gray-400"
-                      }`}
+                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 font-bold text-sm
+                        ${
+                          showResult && isCorrectOption
+                            ? "border-green-500 bg-green-500 text-white"
+                            : showResult && isSelected && !isCorrect
+                            ? "border-red-500 bg-red-500 text-white"
+                            : isSelected
+                            ? "border-purple-500 bg-purple-500 text-white"
+                            : "border-gray-400"
+                        }`}
                     >
                       {optionLetter}
                     </div>
-                    <span className="font-medium">{option}</span>
+
+                    {/* OPTION TEXT FIX */}
+                    <span className="font-medium break-words whitespace-normal block flex-1">
+                      {option}
+                    </span>
+
                     {showResult && isCorrectOption && (
-                      <CheckCircle2 className="w-5 h-5 text-green-600 ml-auto" />
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 ml-auto" />
                     )}
                   </div>
                 </button>
@@ -164,13 +176,15 @@ const QuizQuestion = ({
             })}
           </div>
 
+          {/* RESULT BOX */}
           {showResult && (
             <div
-              className={`mt-4 p-4 rounded-lg ${
-                isCorrect
-                  ? "bg-green-50 border-2 border-green-200"
-                  : "bg-red-50 border-2 border-red-200"
-              }`}
+              className={`mt-4 p-4 rounded-lg break-words whitespace-normal max-w-full
+                ${
+                  isCorrect
+                    ? "bg-green-50 border-2 border-green-200"
+                    : "bg-red-50 border-2 border-red-200"
+                }`}
             >
               <div className="flex items-start gap-2 mb-2">
                 {isCorrect ? (
@@ -187,7 +201,11 @@ const QuizQuestion = ({
                   </>
                 )}
               </div>
-              <p className="text-sm text-gray-700 ml-7">{explanation}</p>
+
+              {/* EXPLANATION FIX */}
+              <p className="text-sm text-gray-700 ml-7 break-words whitespace-normal">
+                {explanation}
+              </p>
             </div>
           )}
         </div>
@@ -464,9 +482,11 @@ export default function Bab8() {
                   </h3>
                   <p className="text-gray-700 mb-4">
                     Buka file migration{" "}
-                    <code className="bg-gray-100 px-2 py-1 rounded">
-                      database/migrations/xxxx_create_barangs_table.php
-                    </code>{" "}
+                    <span className="max-w-full overflow-x-auto inline-block align-middle">
+                      <code className="bg-gray-100 px-2 py-1 rounded whitespace-nowrap block w-max">
+                        database/migrations/xxxx_create_barangs_table.php
+                      </code>
+                    </span>{" "}
                     dan tambahkan kolom supplier:
                   </p>
 
@@ -1003,24 +1023,27 @@ export default function Bab8() {
             </div>
 
             {/* Part 3: Quiz */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold">
+            <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-lg border-2 border-purple-100">
+              {/* Header */}
+              <div className="flex items-center gap-2 mb-4 sm:mb-6">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">
                   3
                 </div>
-                <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-                  <Brain className="w-6 h-6" />
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-800 flex items-center gap-2">
+                  <Brain className="w-5 h-5 sm:w-6 sm:h-6" />
                   Part 3: Quiz Pemahaman
                 </h2>
               </div>
 
-              <p className="text-gray-700 text-lg mb-6">
+              {/* Intro Text */}
+              <p className="text-gray-700 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
                 Test pemahamanmu dengan menjawab 5 pertanyaan berikut. Jawab
-                semua pertanyaan, lalu klik tombol{" "}
-                <strong>"Submit Jawaban"</strong> untuk melihat hasilnya!
+                semua pertanyaan, lalu klik <strong>"Submit Jawaban"</strong>{" "}
+                untuk melihat hasilnya!
               </p>
 
-              <div className="space-y-6 mb-8">
+              {/* Quiz List */}
+              <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
                 {quizData.map((q) => (
                   <QuizQuestion
                     key={q.number}
@@ -1032,11 +1055,11 @@ export default function Bab8() {
               </div>
 
               {/* Submit Button */}
-              <div className="flex justify-center mb-8">
+              <div className="flex justify-center mb-6 sm:mb-8">
                 <button
                   onClick={handleSubmitQuiz}
                   disabled={!allQuestionsAnswered || quizSubmitted}
-                  className={`px-8 py-4 rounded-xl font-bold text-lg transition-all transform ${
+                  className={`px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition-all transform ${
                     allQuestionsAnswered && !quizSubmitted
                       ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:scale-105 shadow-xl hover:shadow-2xl"
                       : "bg-gray-300 text-gray-500 cursor-not-allowed"
@@ -1048,9 +1071,10 @@ export default function Bab8() {
 
               {/* Quiz Result */}
               {quizSubmitted && (
-                <div id="quiz-result" className="space-y-6">
+                <div id="quiz-result" className="space-y-5 sm:space-y-6">
+                  {/* Score Box */}
                   <div
-                    className={`rounded-2xl p-8 text-center ${
+                    className={`rounded-2xl p-6 sm:p-8 text-center ${
                       score >= 4
                         ? "bg-gradient-to-r from-green-500 to-emerald-600"
                         : score === 3
@@ -1058,71 +1082,66 @@ export default function Bab8() {
                         : "bg-gradient-to-r from-orange-500 to-red-600"
                     } text-white shadow-2xl`}
                   >
-                    <div className="inline-block p-4 bg-white/20 rounded-2xl mb-4">
+                    <div className="inline-block p-3 sm:p-4 bg-white/20 rounded-2xl mb-4">
                       {score >= 4 ? (
-                        <Trophy className="w-16 h-16" />
+                        <Trophy className="w-12 h-12 sm:w-16 sm:h-16" />
                       ) : score === 3 ? (
-                        <Award className="w-16 h-16" />
+                        <Award className="w-12 h-12 sm:w-16 sm:h-16" />
                       ) : (
-                        <Target className="w-16 h-16" />
+                        <Target className="w-12 h-12 sm:w-16 sm:h-16" />
                       )}
                     </div>
 
-                    <h3 className="text-3xl font-bold mb-2">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-2">
                       Nilai Kamu: {score} / {quizData.length}
                     </h3>
 
-                    <p className="text-xl mb-4">
+                    <p className="text-lg sm:text-xl mb-4">
                       {score >= 4 &&
                         "🎉 Excellent! Kamu menguasai materi dengan sangat baik!"}
                       {score === 3 && "👍 Good Job! Pemahaman kamu cukup baik!"}
                       {score <= 2 && "📚 Keep Learning! Review materi lagi ya!"}
                     </p>
 
-                    <div className="bg-white/20 rounded-xl p-4 max-w-md mx-auto">
-                      <div className="text-sm mb-2">Persentase Benar</div>
-                      <div className="text-4xl font-bold">
+                    <div className="bg-white/20 rounded-xl p-3 sm:p-4 max-w-xs sm:max-w-md mx-auto">
+                      <div className="text-sm mb-1 sm:mb-2">
+                        Persentase Benar
+                      </div>
+                      <div className="text-3xl sm:text-4xl font-bold">
                         {Math.round((score / quizData.length) * 100)}%
                       </div>
                     </div>
                   </div>
 
-                  {/* Feedback per kategori nilai */}
-                  <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200">
+                  {/* Rekomendasi */}
+                  <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border-2 border-gray-200">
                     <h4 className="font-bold text-gray-800 mb-3">
                       💡 Rekomendasi:
                     </h4>
                     {score >= 4 && (
-                      <p className="text-gray-700">
+                      <p className="text-gray-700 text-sm sm:text-base">
                         Mantap! Kamu sudah siap untuk project Laravel
-                        berikutnya. Coba explore fitur Laravel lainnya seperti
-                        Middleware, Authentication, atau API Development!
+                        berikutnya...
                       </p>
                     )}
                     {score === 3 && (
-                      <p className="text-gray-700">
-                        Pemahaman kamu sudah cukup bagus! Review lagi materi
-                        yang masih kurang, terutama tentang alur kerja
-                        Migration, Model, dan Controller. Practice makes
-                        perfect!
+                      <p className="text-gray-700 text-sm sm:text-base">
+                        Pemahaman kamu cukup bagus! Review lagi bagian
+                        Migration, Model...
                       </p>
                     )}
                     {score <= 2 && (
-                      <p className="text-gray-700">
-                        Jangan menyerah! Baca ulang materi dari Bab 1-7, lalu
-                        coba kerjakan challenge ini lagi. Fokus pada konsep
-                        dasar MVC dan alur CRUD. Kamu pasti bisa!
+                      <p className="text-gray-700 text-sm sm:text-base">
+                        Jangan menyerah! Baca ulang materi dari Bab 1–7...
                       </p>
                     )}
                   </div>
 
-                  {/* Try Again Button */}
+                  {/* Try Again */}
                   <div className="text-center">
                     <button
-                      onClick={() => {
-                        window.location.reload(); // restart halaman sepenuhnya
-                      }}
-                      className="px-6 py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-colors font-semibold"
+                      onClick={() => window.location.reload()}
+                      className="px-5 py-3 sm:px-6 sm:py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-colors font-semibold text-sm sm:text-base"
                     >
                       🔄 Coba Lagi
                     </button>

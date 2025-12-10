@@ -201,25 +201,29 @@ php artisan migrate`}
                 <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">
                   <div className="flex items-start gap-3">
                     <Zap className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
-                    <div>
+                    <div className="min-w-0 break-words">
                       <p className="text-gray-800 font-semibold text-lg mb-3">
                         🎯 Apa yang Akan Terjadi?
                       </p>
-                      <p className="text-gray-700 mb-3">
+
+                      <p className="text-gray-700 mb-3 break-words">
                         Setelah kamu ketik{" "}
-                        <code className="bg-gray-800 text-green-400 px-2 py-1 rounded">
+                        <code className="bg-gray-800 text-green-400 px-2 py-1 rounded break-words whitespace-pre-wrap">
                           php artisan migrate
                         </code>
                         , Laravel akan cek apakah database "db_barang" sudah ada
                         atau belum.
                       </p>
-                      <div className="bg-white rounded-lg p-4 border-l-4 border-amber-400">
-                        <p className="text-gray-600 mb-2">
+
+                      <div className="bg-white rounded-lg p-4 border-l-4 border-amber-400 overflow-x-auto">
+                        <p className="text-gray-600 mb-2 break-words">
                           Kalau database <strong>BELUM ADA</strong>, muncul
                           pesan:
                         </p>
+
                         <CodeBlock
-                          code={`  WARN  The database 'db_barang' does not exist on the 'mysql' connection.  
+                          className="whitespace-pre-wrap break-words overflow-x-auto"
+                          code={`  WARN  The database 'db_barang' does not exist on the 'mysql' connection.
 
   Would you like to create it? (yes/no) [yes]
 ❯ yes    ← Ketik "yes" terus Enter`}
@@ -233,15 +237,20 @@ php artisan migrate`}
                 <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                    <div>
+
+                    <div className="min-w-0 break-words">
                       <p className="text-gray-800 font-semibold text-lg mb-3">
                         ✅ Berhasil!
                       </p>
-                      <p className="text-gray-700 mb-3">
+
+                      <p className="text-gray-700 mb-3 break-words">
                         Kalau berhasil, muncul pesan kayak gini:
                       </p>
-                      <CodeBlock
-                        code={`INFO  Preparing database.
+
+                      <div className="overflow-x-auto">
+                        <CodeBlock
+                          className="whitespace-pre-wrap break-words"
+                          code={`INFO  Preparing database.
 
 Creating migration table ........................... 16ms DONE
 
@@ -250,9 +259,11 @@ INFO  Running migrations.
 2014_10_12_000000_create_users_table ............... 25ms DONE
 2014_10_12_100000_create_password_resets_table ..... 12ms DONE
 2019_08_19_000000_create_failed_jobs_table ......... 10ms DONE`}
-                        title="Output Berhasil"
-                      />
-                      <p className="text-gray-600 mt-3">
+                          title="Output Berhasil"
+                        />
+                      </div>
+
+                      <p className="text-gray-600 mt-3 break-words">
                         Sekarang database <strong>db_barang</strong> sudah
                         dibuat otomatis! Tabel-tabel default Laravel juga udah
                         jadi!
@@ -275,36 +286,45 @@ INFO  Running migrations.
                 </p>
                 <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200">
                   <ol className="space-y-3 text-gray-700">
+                    {/* STEP 1 */}
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
                         1
                       </span>
-                      <span>
-                        Buka browser, ketik:{" "}
-                        <code className="bg-gray-800 text-green-400 px-2 py-1 rounded">
-                          http://localhost/phpmyadmin
-                        </code>
-                      </span>
+
+                      <div className="min-w-0">
+                        Buka browser, ketik:
+                        <div className="inline-block max-w-full overflow-x-auto">
+                          <code className="bg-gray-800 text-green-400 px-2 py-1 rounded whitespace-nowrap inline-block">
+                            http://localhost/phpmyadmin
+                          </code>
+                        </div>
+                      </div>
                     </li>
+
+                    {/* STEP 2 */}
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
                         2
                       </span>
-                      <span>
+                      <div className="min-w-0">
                         Di sidebar kiri, cari nama database{" "}
                         <strong>"db_barang"</strong>
-                      </span>
+                      </div>
                     </li>
+
+                    {/* STEP 3 */}
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
                         3
                       </span>
-                      <span>
-                        Klik database-nya, harusnya udah ada tabel:{" "}
+                      <div className="min-w-0">
+                        Klik database-nya, harusnya udah ada tabel:
                         <strong>
+                          {" "}
                           users, password_resets, failed_jobs, migrations
                         </strong>
-                      </span>
+                      </div>
                     </li>
                   </ol>
                 </div>
