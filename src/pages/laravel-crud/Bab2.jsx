@@ -128,9 +128,15 @@ export default function Bab2() {
               <h2 className="text-2xl font-bold text-gray-800 mb-6">
                 📦 Daftar Tools Wajib
               </h2>
+
               <div className="grid md:grid-cols-2 gap-6">
+                {/* XAMPP */}
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200">
-                  <div className="text-4xl mb-3">🟧</div>
+                  <img
+                    src="/images/icons/xampp.png"
+                    alt="XAMPP"
+                    className="w-14 h-14 mb-3 object-contain"
+                  />
                   <h3 className="font-bold text-gray-800 mb-2 text-lg">
                     XAMPP
                   </h3>
@@ -138,31 +144,49 @@ export default function Bab2() {
                     Paket lengkap PHP + MySQL + Apache. Ini server lokal kamu!
                   </p>
                 </div>
+
+                {/* Composer */}
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200">
-                  <div className="text-4xl mb-3">🎼</div>
+                  <img
+                    src="/images/icons/composer.png"
+                    alt="Composer"
+                    className="w-14 h-14 mb-3 object-contain"
+                  />
                   <h3 className="font-bold text-gray-800 mb-2 text-lg">
                     Composer
                   </h3>
                   <p className="text-gray-600">
-                    Package manager untuk PHP. Kayak npm untuk Node.js
+                    Package manager untuk PHP. Kayak npm untuk Node.js.
                   </p>
                 </div>
+
+                {/* VS Code */}
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200">
-                  <div className="text-4xl mb-3">💻</div>
+                  <img
+                    src="/images/icons/vscode.png"
+                    alt="VS Code"
+                    className="w-14 h-14 mb-3 object-contain"
+                  />
                   <h3 className="font-bold text-gray-800 mb-2 text-lg">
                     VS Code
                   </h3>
                   <p className="text-gray-600">
-                    Text editor (recommended). Atau pakai editor favorit kamu
+                    Text editor (recommended). Atau pakai editor favorit kamu.
                   </p>
                 </div>
+
+                {/* Browser */}
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200">
-                  <div className="text-4xl mb-3">🌐</div>
+                  <img
+                    src="/images/icons/browser.png"
+                    alt="Browser"
+                    className="w-14 h-14 mb-3 object-contain"
+                  />
                   <h3 className="font-bold text-gray-800 mb-2 text-lg">
                     Browser
                   </h3>
                   <p className="text-gray-600">
-                    Chrome/Firefox untuk testing aplikasi
+                    Chrome/Firefox untuk testing aplikasi.
                   </p>
                 </div>
               </div>

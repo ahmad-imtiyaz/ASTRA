@@ -836,21 +836,19 @@ class Barang extends Model
                 aja!
               </p>
 
-              <CodeBlock
-                code={`# Bikin Model + Migration sekaligus
-php artisan make:model Product -m
-
-# Output yang ditampilkan:`}
-                title="Shortcut Command"
-                language="bash"
-              />
+              <div className="mb-8">
+                <CodeBlock
+                  code={`# Bikin Model + Migration sekaligus
+php artisan make:model Product -m`}
+                  title="Shortcut Command"
+                  language="bash"
+                />
+              </div>
 
               <CodeBlock
                 code={`$ php artisan make:model Product -m
 
-   INFO  Model [app/Models/Product.php] created successfully.  
-
-   INFO  Migration [database/migrations/2025_02_26_232350_create_products_table.php] created successfully.`}
+INFO Model created successfully.`}
                 title="Terminal Output"
                 language="bash"
               />
