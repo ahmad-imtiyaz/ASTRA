@@ -1,16 +1,12 @@
-# React + Vite
+🌟
+Filosofi Program
+ASTRA lahir dari gagasan untuk membangun generasi rising achievers —siswa-siswi yang tidak hanya mampu menggunakan teknologi, tetapi juga menguasainya. Melalui pelatihan keterampilan teknologi modern seperti pemrograman, desain, jaringan, internet produktif, dan literasi digital, program ini membantu sekolah mempersiapkan siswanya memasuki dunia yang serba digital.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mengapa ASTRA Diciptakan?
+Kami melihat banyak siswa memiliki potensi besar, namun belum mendapatkan kesempatan untuk mengenal teknologi secara lebih mendalam. Padahal, keterampilan digital adalah bekal penting yang akan mereka gunakan saat memasuki dunia kuliah maupun dunia kerja.
 
-Currently, two official plugins are available:
+Misi Utama Program
+ASTRA hadir untuk memberikan fondasi teknologi yang kuat, agar siswa mampu beradaptasi, berinovasi, dan bersaing di era modern. Program ini mengajak siswa untuk tidak hanya memahami teknologi, tetapi menggunakannya sebagai alat untuk menciptakan peluang baru, memecahkan masalah, dan membangun masa depan mereka.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Dampak yang Diharapkan
+Dengan mengikuti ASTRA, siswa diharapkan dapat melihat teknologi sebagai peluang, bukan tantangan. Kami ingin membantu sekolah membangun generasi yang percaya diri, kritis, kreatif, dan siap menghadapi perkembangan zaman—generasi rising achievers yang sebenarnya.
