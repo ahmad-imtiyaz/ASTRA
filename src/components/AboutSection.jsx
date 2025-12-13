@@ -18,7 +18,7 @@ export default function AboutSection() {
         <p className="text-gray-700 leading-relaxed text-lg mb-6">
           ASTRA lahir dari gagasan untuk membangun generasi{" "}
           <span className="font-bold text-blue-600">rising achievers</span>{" "}
-          —siswa-siswi yang tidak hanya mampu menggunakan teknologi, tetapi juga
+          siswa-siswi yang tidak hanya mampu menggunakan teknologi, tetapi juga
           menguasainya. Melalui pelatihan keterampilan teknologi modern seperti
           pemrograman, desain, jaringan, internet produktif, dan literasi
           digital, program ini membantu sekolah mempersiapkan siswanya memasuki
@@ -66,7 +66,7 @@ export default function AboutSection() {
                 Dengan mengikuti ASTRA, siswa diharapkan dapat melihat teknologi
                 sebagai peluang, bukan tantangan. Kami ingin membantu sekolah
                 membangun generasi yang percaya diri, kritis, kreatif, dan siap
-                menghadapi perkembangan zaman—generasi{" "}
+                menghadapi perkembangan zaman generasi{" "}
                 <span className="font-bold text-blue-600">
                   rising achievers
                 </span>{" "}
