@@ -265,8 +265,8 @@ export default function Bab6() {
               <CodeBlock
                 code={`<?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BarangController;
+use Illuminate\\Support\\Facades\\Route;
+use App\\Http\\Controllers\\BarangController;
 
 Route::get('/', [BarangController::class, 'index']);
 
