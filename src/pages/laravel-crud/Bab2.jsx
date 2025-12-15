@@ -197,8 +197,11 @@ export default function Bab2() {
               <h2 className="text-2xl font-bold text-gray-800 mb-6">
                 📥 Langkah Instalasi
               </h2>
+
               <div className="space-y-6">
+                {/* STEP 1: Install XAMPP */}
                 <CodeBlock
+                  title="1. Install XAMPP"
                   code={`1. Download di: https://www.apachefriends.org
 2. Jalankan installer
 3. Pilih komponen:
@@ -210,31 +213,76 @@ export default function Bab2() {
 5. Klik Next-Next-Finish
 6. Buka XAMPP Control Panel
 7. Start Apache & MySQL`}
-                  title="1. Install XAMPP"
                 />
+
                 <div className="text-center">
                   <span className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full font-semibold">
                     LALU
                   </span>
                 </div>
+
+                {/* STEP 2: Aktifkan ZIP Extension */}
                 <CodeBlock
+                  title="2. Aktifkan Extension ZIP (Penting!)"
+                  code={`1. Buka folder XAMPP: C:/xampp/php
+2. Cari file php.ini, buka dengan Notepad
+3. Tekan Ctrl + F, cari: extension=zip
+4. Hapus tanda titik koma (;) di depannya:
+
+   SEBELUM:
+   ;extension=zip
+
+   SESUDAH:
+   extension=zip
+
+5. Save file (Ctrl + S)
+6. Restart Apache di XAMPP Control Panel`}
+                />
+
+                <div className="bg-yellow-50 rounded-xl p-6 border-2 border-yellow-200">
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-yellow-800 mb-2">
+                        ⚠️ Kenapa Harus Aktifkan Extension ZIP?
+                      </p>
+                      <p className="text-gray-700">
+                        Composer membutuhkan extension ZIP untuk mendownload dan
+                        mengekstrak package Laravel. Jika extension ini tidak
+                        aktif, Composer akan error dan Laravel tidak bisa
+                        diinstall.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center">
+                  <span className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full font-semibold">
+                    LALU
+                  </span>
+                </div>
+
+                {/* STEP 3: Install Composer */}
+                <CodeBlock
+                  title="3. Install Composer"
                   code={`1. Download di: https://getcomposer.org
 2. Jalankan installer (Composer-Setup.exe)
 3. Pilih PHP dari XAMPP:
    C:/xampp/php/php.exe
 4. Klik Next sampai selesai
-5. Buka CMD/Terminal, cek instalasi:
+5. Buka CMD / Terminal, cek instalasi:
    composer --version
-   
-   Harusnya muncul: Composer version 2.x.x`}
-                  title="2. Install Composer"
+
+   Jika muncul: Composer version 2.x.x
+   berarti berhasil`}
                 />
+
                 <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200">
                   <div className="flex items-start gap-3">
                     <Zap className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
                     <p className="text-gray-700 text-lg">
-                      Kalau kedua command di atas berhasil, berarti tools udah
-                      siap! 🎉
+                      Kalau semua langkah di atas berhasil, berarti environment
+                      Laravel kamu sudah siap digunakan! 🎉
                     </p>
                   </div>
                 </div>
