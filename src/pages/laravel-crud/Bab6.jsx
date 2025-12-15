@@ -626,31 +626,31 @@ Route::resource('barang', BarangController::class);
                             </td>
                             <td>Rp {{ number_format($barang->harga, 0, ',', '.') }}</td>
                             <td class="text-center">
-                                <div class="btn-group btn-group-sm">
-                                    <!-- Tombol Detail -->
-                                    <a href="{{ route('barang.show', $barang->id) }}" 
-                                       class="btn btn-info" title="Detail">
-                                        👁️
-                                    </a>
-                                    
-                                    <!-- Tombol Edit -->
-                                    <a href="{{ route('barang.edit', $barang->id) }}" 
-                                       class="btn btn-warning" title="Edit">
-                                        ✏️
-                                    </a>
-                                    
-                                    <!-- Tombol Hapus -->
-                                    <form action="{{ route('barang.destroy', $barang->id) }}" 
-                                          method="POST" 
-                                          style="display:inline;"
-                                          onsubmit="return confirm('Yakin ingin menghapus data ini?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" title="Hapus">
-                                            🗑️
-                                        </button>
-                                    </form>
-                                </div>
+                                <div class="d-flex justify-content-center gap-2">
+                              <!-- Tombol Detail -->
+                              <a href="{{ route('barang.show', $barang->id) }}" 
+                                  class="btn btn-info btn-sm" title="Detail">
+                                  👁️
+                              </a>
+
+                              <!-- Tombol Edit -->
+                              <a href="{{ route('barang.edit', $barang->id) }}" 
+                                  class="btn btn-warning btn-sm" title="Edit">
+                                  ✏️
+                              </a>
+
+                              <!-- Tombol Hapus -->
+                              <form action="{{ route('barang.destroy', $barang->id) }}" 
+                                  method="POST"
+                                  onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button type="submit" class="btn btn-danger btn-sm" title="Hapus">
+                                  🗑️
+                                  </button>
+                              </form>
+                          </div>
+
                             </td>
                         </tr>
                         @endforeach
